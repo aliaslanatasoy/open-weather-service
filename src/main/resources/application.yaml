@@ -28,4 +28,4 @@ spring.redis.ssl: false
 
 openweather:
   baseUrl: "http://api.weatherstack.com/current"
-  accessKey: "06180efe9e68ec51e963825a956dcf3e"
+  accessKey: "dummyToken"
