@@ -1,0 +1,9 @@
+spring.redis.host: localhost
+spring.redis.port: 6370
+spring.liquibase.enabled: false
+
+
+
+openweather:
+  baseUrl: "http://dummyPath"
+  accessKey: "dummyToken"

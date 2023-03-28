@@ -1,0 +1,44 @@
+This assignment is implemented by Ali Aslan Atasoy for LeasePlan. Please do not use this code for any other purposes.
+
+This application has breaking changes from prior versions.
+Therefore app will run on `api/v2` endpoint as a new version. To experience and analyse,
+requests can partially redirected to this version of the api and follow the behaviour.
+
+- Java version has been updated from 8 to 17.
+- Spring Boot version has been updated from 2.3.8.RELEASE to 3.0.5
+- REST calls moved to Feign Client implementation over OKHttp
+
+This Application is  implemented and tested on Java 17 along with Maven 3.9.1
+
+Application is configurable over environment variables for the following values:
+*Make sure below services up and running before start the service*
+
+- pg_host for postgres database host (default value: localhost)
+- pg_dbname for postgres database name (default value: postgresDB)
+- pg_username for postgres user name (default value: pg_username)
+- pg_password for postgres password (default value: pg_password)
+- spring.redis.host for redis host (default: localhost)
+- spring.redis.port for redis port (default: 6379)
+- spring.redis.password for redis password (default: redis)
+- redis.cache.ttl for time to live in seconds(default 30)
+
+Note: Redis cache manager built with SpringBoot default providers, if you want to use your own cache manager,
+it might require additional code changes(Cache manager config).
+
+This application contains Dockerfile to build a docker image for your application.
+- You can run ` docker build -t leaseplan/openweather . ` in the main directory and you will have your image as
+`leaseplan/openweather`. You can update your image name.
+- In order to run your image on docker `docker run -p 8080:8080 leaseplan/openweather` This will run your image on
+docker. You might need to arrange your own port and image name if you want to change.
+
+This application has OpenWeatherApi connection with a configuration. URL and Access token is configurable and you can
+maintain your own values by setting below environment variables
+- openweather.baseUrl for open weather base url
+- openweather.accessKey for open weather access key
+
+Local build:
+- By `mvn clean install` you will build your project and have a jar file in the `target` folder.
+
+Run tests:
+- By `mvn clean test` will initiate all test cases written in the application. Coverage is around 77%.
+This result is extracted by IntelliJ `run with coverage` option

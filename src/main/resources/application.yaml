@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${pg_host:localhost:5455}/${pg_dbname:postgresDB}
+    username: ${pg_username:postgresUser}
+    password: ${pg_password:postgresPW}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      jdbc:
+        lob:
+          non_contextual_creation: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog-master.xml
+
+# cache configuration
+redis.cache.ttl: 30
+redis.cache.enabled: true
+spring.cache.type: redis
+spring.redis.host: localhost
+spring.redis.port: 6379
+spring.redis.password: redis
+spring.redis.ssl: false
+
+openweather:
+  baseUrl: "http://api.weatherstack.com/current"
+  accessKey: "06180efe9e68ec51e963825a956dcf3e"

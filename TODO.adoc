@@ -1,0 +1,5 @@
+TO-DO for Weather Service
+- Update to JUnit5
+- Testcontainers already introduced to project implement integration tests
+- Implement much granulised error mapping
+- Introduce helm charts to support kubernetes native deployment.
